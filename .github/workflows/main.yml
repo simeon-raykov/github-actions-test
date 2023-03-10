@@ -1,0 +1,27 @@
+name: Build and Test App
+
+on:
+  push:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Lint code
+      run: npm run lint
+
+    - name: Build app
+      run: npm run build
+
+    - name: Test app
+      run: npm run test
+      
+    - name: Deploy app
+      run: echo "Deploying app to the cloud ..."
